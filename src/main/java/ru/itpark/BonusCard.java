@@ -12,9 +12,7 @@ public class BonusCard {
 
         int commonPurchase = currentPurchase + totalPurchases;
 
-        int bonusSum = (int) (currentPurchase / 1_000);
-
-        int result = bonusSum * standardLevel;
+        int bonusSum = currentPurchase / 1_000;
 
         if (commonPurchase > goldCardBonus) {
             return bonusSum * goldLevel;
@@ -23,6 +21,8 @@ public class BonusCard {
         if (commonPurchase > silverCardBonus) {
             return bonusSum * silverLevel;
         }
+
+        int result = bonusSum * standardLevel;
 
         return result;
     }

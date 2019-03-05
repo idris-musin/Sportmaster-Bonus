@@ -7,37 +7,39 @@ import static org.junit.jupiter.api.Assertions.*;
 class BonusCardTest {
 
     @Test
-    void calculate() {
-        {
-            BonusCard service = new BonusCard();
+    void goldCard() {
 
-            int bonus = service.calculate(150_000, 1_000);
+        BonusCard service = new BonusCard();
 
-            assertEquals(15_000, bonus);
-        }
+        int bonus = service.calculate(150_123, 1_000);
 
-        {
-            BonusCard service = new BonusCard();
+        assertEquals(15_000, bonus);
+    }
 
-            int bonus = service.calculate(15_000, 1_000);
+    @Test
+    void silverCard() {
+        BonusCard service = new BonusCard();
 
-            assertEquals(1_050, bonus);
-        }
+        int bonus = service.calculate(15_123, 1_000);
 
-        {
-            BonusCard service = new BonusCard();
+        assertEquals(1_050, bonus);
+    }
 
-            int bonus = service.calculate(5_000, 1_000);
+    @Test
+    void blueCard() {
+        BonusCard service = new BonusCard();
 
-            assertEquals(250, bonus);
-        }
+        int bonus = service.calculate(5_123, 1_000);
 
-        {
-            BonusCard service = new BonusCard();
+        assertEquals(250, bonus);
+    }
 
-            int bonus = service.calculate(500, 0);
+    @Test
+    void noCard() {
+        BonusCard service = new BonusCard();
 
-            assertEquals(0, bonus);
-        }
+        int bonus = service.calculate(523, 0);
+
+        assertEquals(0, bonus);
     }
 }
